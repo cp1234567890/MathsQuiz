@@ -1,0 +1,20 @@
+h1 {
+  color: #feb201;
+  background-color: #293df0;
+  border: 10px solid #0000cc;
+  font-style: oblique;
+}
+
+p {
+  color: #dc143c;
+  text-align: center;
+}
+div {
+  text-align:center;
+  background-color:#00ced1;
+  color: 'aqua';
+}
+
+body{
+  background-color:#2D3047;
+}

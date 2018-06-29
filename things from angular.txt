@@ -1,0 +1,48 @@
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  
+<li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+ 
+ <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+
+
+startTimer(){
+
+	let x = 0
+
+	var deadline = new Date("June 27, 2018 15:37:25").getTime();
+   
+	setInterval(function() {
+ 
+		x = x+1
+  
+		console.log(x)
+ 
+		this.timer = x
+  
+		console.log(this.timer)
+  
+		if(x == 60){
+  
+			window.alert("The time is up")
+  
+			if(window.confirm("Do you want to start a new game?")){
+  
+				this.resetGame()
+  
+			} else {
+ 
+				console.log("A new game will not start")
+ 
+			}
+  
+		}
+  
+	}, 1000);

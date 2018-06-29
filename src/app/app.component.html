@@ -1,0 +1,78 @@
+<!-- The content below is only a placeholder and can be replaced.-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <h2><span>Game Mode: <strong>{{gameMode}}</strong></span><br>Question {{numberOfQuestions}}/20</h2>
+  </div>
+  <div *ngIf='gameMode == ""'><h2><u><strong>CHOOSE YOUR GAME DIFFICULTY</strong></u></h2></div>
+  <div style="text-align:center">
+  <button class="btn btn-success btn-lg" type="button" *ngIf='gameMode == ""' (click)="easyMode()">Easy (Numbers between 0 and 10)</button>
+  <button class="btn btn-warning btn-lg" type="button" *ngIf='gameMode == ""' (click)="normalMode()">Normal (Numbers between 10 and 20)</button>
+  <button class="btn btn-danger btn-lg" type="button" *ngIf='gameMode == ""' (click)="hardMode()">Hard (Numbers between 20 and 100)</button>
+  </div>
+  <div *ngIf='!gameMode == ""'>
+
+  <div style="text-align:center">
+  <input [(ngModel)]="name" placeholder="Name" required>
+  <br>
+  <font size="3">Start the game to generate two random numbers.</font>
+  <div style='text-align:center'>
+  <input [(ngModel)]='numberOne'>
+  <br>
+  <input [(ngModel)]='numberTwo'>
+  <br>
+  {{question}}
+  <br>
+<div class="form-group has-success">
+  <label class="control-label" for="inputSuccess1">Enter your answer here</label>
+  <span id="helpBlock2" class="help-block"></span>
+</div>
+<input [(ngModel)]='answer' required>
+  <button class="btn btn-success" *ngIf="countDownStart" (click)="checkAnswer();">Check</button>
+
+  <div>
+    <font size="10">You have <em>{{score}}</em> points!</font>
+  </div>
+  <button type="button" class="btn btn-info btn-lg" (click)="startTimer()">Start the Game</button>
+  <h2>{{countDown | async}}</h2>
+  <!-- <h2>{{count}}</h2> -->
+</div>
+</div>
+<br>
+Most Recent Scores:
+<!-- <table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>score</th>
+  </tr>
+    <div *ngFor="#leader of leaderBoard">
+    <span>{{leader}}</span>
+    <td>{{x.id}}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.score}}</td>
+  </div>
+</table> -->
+
+<ul>
+   <li *ngFor = "let leader of leaderBoard">
+     {{leader.id}}
+     {{leader.name}}
+     {{leader.score}}
+   </li>
+</ul>
+
+<!-- {{leaderBoard[0].name}}{{leaderBoard[0].score}} -->
+<!-- {{leaderBoard[1].name}}{{leaderBoard[1].score}}
+{{leaderBoard[2].name}}{{leaderBoard[2].score}} -->
